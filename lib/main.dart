@@ -70,12 +70,21 @@ class DigitListWheelScrollView extends StatelessWidget {
       width: MediaQuery.of(context).size.width * 0.3,
       height: MediaQuery.of(context).size.height * 0.3,
       child: SizedBox(
+        width: MediaQuery.of(context).size.width * 0.1,
+        height: MediaQuery.of(context).size.height * 0.3,
         child: ListWheelScrollView(
+          diameterRatio: 1,
           physics: FixedExtentScrollPhysics(),
           onSelectedItemChanged: (index) {
-            Fluttertoast.showToast(msg: "Selected Item:${index}");
+            Fluttertoast.showToast(
+                msg: "Selected Item:${index}",
+                toastLength: Toast.LENGTH_SHORT,
+                gravity: ToastGravity.CENTER,
+                //  timeInSecForIos: 1,
+                backgroundColor: Colors.red,
+                textColor: Colors.white);
           },
-          itemExtent: 150,
+          itemExtent: 15,
           children: list,
         ),
       ),
